@@ -126,3 +126,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #model auth user personalisé
 AUTH_USER_MODEL = 'authentication.User'
+
+#dire à Django vers quelle page rediriger si l’utilisateur n’est pas connecté
+LOGIN_URL ='login'
