@@ -85,19 +85,24 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
-
+"""
+    Étape 2 : Configurez les paramètres pour utiliser le validateur personnalisé
+    Maintenant que le validateur est construit, ajoutons-le aux paramètres. 
+    Nous utiliserons également le  
+    MinimumLengthValidator, que nous pouvons configurer à l’aide de la clé  OPTIONS.
+"""
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 8,
+        }
+    }, 
+    {
+        'NAME': 'authentication.validators.ContainsLetterValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'authentication.validators.ContainsNumberValidator',
     },
 ]
 
