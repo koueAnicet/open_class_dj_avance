@@ -17,10 +17,25 @@ from django.contrib import admin
 from django.urls import path
 import authentication.views 
 import blog.views
+from django.contrib.auth.views import LoginView
+
+"""
+*LogoutView  (vue de déconnexion) — vous pouvez supprimer la vue   
+*logout_user  que nous avions construite une fois que c’est fait.
+
+$PasswordChangeView  (vue de changement de mot de passe)
+
+*PasswordChangeDoneView  (vue de changement de mot de passe accompli)
+**N’oubliez pas de consulter documentation Django officielle 
+"""
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', authentication.views.LoginPageView.as_view(), name='login'),
+    #path('', authentication.views.LoginPageView.as_view(), name='login'),
+    path('', LoginView.as_view(
+            template_name='authentication/login.html',
+            redirect_authenticated_user=True),
+        name='login'),
     path('logout/', authentication.views.logout_user, name="logout"),
     path('home/', blog.views.home, name='home'),
 ]
