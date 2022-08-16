@@ -1,4 +1,6 @@
+
 {% extends 'base.html' %}
+{% comment %} #Étape 3 : Configurez les gabarits {% endcomment %}
 
 {% block content %}
     <p>{{ message }}</p>
@@ -8,4 +10,5 @@
 
         <button type="submit">Se connecter</button>
     </form>
+    <p>Pas encore membre ? <a href="{% url 'signup' %}">Inscrivez-vous maintenant !</a></p>
 {% endblock content %}

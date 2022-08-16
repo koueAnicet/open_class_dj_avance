@@ -36,6 +36,7 @@ urlpatterns = [
             template_name='authentication/login.html',
             redirect_authenticated_user=True),
         name='login'),
+    path('signup/', authentication.views.signup_page, name='signup'),#Étape 4 : Ajoutez le modèle d’URL
     path('logout/', authentication.views.logout_user, name="logout"),
     path('home/', blog.views.home, name='home'),
 ]

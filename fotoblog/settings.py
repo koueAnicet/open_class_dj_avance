@@ -129,5 +129,5 @@ AUTH_USER_MODEL = 'authentication.User'
 
 #dire à Django vers quelle page rediriger si l’utilisateur n’est pas connecté
 LOGIN_URL ='login'
-
+#vous utiliserez pour la redirection après une inscription réussie
 LOGIN_REDIRECT_URL = 'home'
