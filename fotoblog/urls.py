@@ -13,11 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+from django.conf import settings
+from django.conf.urls.static import static
+
 from django.contrib import admin
 from django.urls import path
 import authentication.views 
 import blog.views
 from django.contrib.auth.views import LoginView
+
 
 """
 *LogoutView  (vue de déconnexion) — vous pouvez supprimer la vue   
@@ -36,7 +41,13 @@ urlpatterns = [
             template_name='authentication/login.html',
             redirect_authenticated_user=True),
         name='login'),
+    path('photo/upload/', blog.views.photo_upload, name="photo_upload"),
     path('signup/', authentication.views.signup_page, name='signup'),#Étape 4 : Ajoutez le modèle d’URL
     path('logout/', authentication.views.logout_user, name="logout"),
     path('home/', blog.views.home, name='home'),
 ]
+
+
+
+if settings.DEBUG:
+    urlpatterns +=static(settings.MEDIA_URL, document_root =settings.MEDIA_ROOT)
