@@ -12,9 +12,29 @@
     {% endblock content %}
     
     {% if user.is_authenticated %}
-      <p>
-        Vous êtes connecté(e) en tant que {{request.user }}.
-        <a href="{% url 'logout' %}">Se deconnecter</a>
+        <p>
+            Salut{{request.user }}!
+            
+        </p>
+        <p>
+            <a href="{% url 'home' %}">Accueil</a>
+        </p>
+        <p>
+            
+            <a href="{% url 'photo_upload' %}">Télechager une photo</a>
+        </p>
+        
+        
+        {% comment %} <p> 
+            Voulez-vous 
+            <a href="{% url '' %}">changer votre mot de passe ?</a>
+        </p> {% endcomment %}
+        <p> 
+            {% comment %} Voulez-vous  {% endcomment %}
+            <a href="{% url 'change_photo' %}">changer la photo de profile</a>
+        </p>
+        <p>
+            <a href="{% url 'logout' %}">Se deconnecter</a>
         </p>
     {% endif %}
 </body>

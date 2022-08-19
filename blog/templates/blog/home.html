@@ -7,8 +7,11 @@
 {% for photo  in photos %}
 
 <img src="{{ photo.image.url }}">
-<p> {{ photo.caption }}</p>
+<p> <h3>{{ photo.caption }}</h3></p> 
+<h4>Publier par : <strong>{{ photo.uploader }}</strong></h4> 
 
 {% endfor %}
-
+<p>
+{{ form.profile_photo }}
+</p>
 {% endblock content %}

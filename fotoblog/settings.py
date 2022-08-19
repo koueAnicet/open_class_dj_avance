@@ -123,6 +123,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+#qui est l’URL depuis laquelle Django va essayer de servir des médias
+MEDIA_URL = '/media/'
+#le répertoire local dans lequel Django doit sauvegarder les images téléversées
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/") 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -136,7 +140,3 @@ AUTH_USER_MODEL = 'authentication.User'
 LOGIN_URL ='login'
 #vous utiliserez pour la redirection après une inscription réussie
 LOGIN_REDIRECT_URL = 'home'
-#qui est l’URL depuis laquelle Django va essayer de servir des médias
-MEDIA_URL = '/media/'
-#le répertoire local dans lequel Django doit sauvegarder les images téléversées
-MEDIA_ROOT = os.path.join(BASE_DIR, "media/") 
