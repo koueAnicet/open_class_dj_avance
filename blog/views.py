@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+
 from django.shortcuts import redirect, render
 
 from blog import forms
@@ -36,5 +37,5 @@ def photo_upload(request):
             print(photo.uploader)
             #actu on peut sover
             photo.save()
-            return redirect('home', photo.uploader)
+            return redirect('home')
     return render(request, 'blog/photo_upload.html', context={'form': form})

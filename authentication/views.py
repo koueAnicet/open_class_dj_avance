@@ -33,6 +33,7 @@ def upload_profile_photo(request):
 def logout_user(request):
     logout(request)
     return redirect('login')
+
 class LoginPageView(View):
     template_name="authentication/login.html"
     class_form = forms.LoginForm
